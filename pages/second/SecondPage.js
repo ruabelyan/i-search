@@ -8,6 +8,7 @@ import { Map, Placemark, YMaps } from "react-yandex-maps";
 import Image from "next/image";
 import backIcon from "../svg/back.png";
 import searchIcon from "../svg/search.png";
+import ArrowPrevTailIcon from "../svg/back.svg";
 
 const SecondPage = () => {
   return (
@@ -20,11 +21,17 @@ const SecondPage = () => {
             </div>
             <div className={css.firstSearchBlock}>
               <input type="text" placeholder={"Մուտքագրեք որոնման տվյալները"} />
-              {/* <div
-                style={{ height: "50px", width: "50px" }}
+              <div
+                style={{
+                  position: "absolute",
+                  top: "23px",
+                  right: "10px",
+                  height: "50px",
+                  width: "50px",
+                }}
               >
-                <Image src={searchIcon} alt="icon" />
-              </div> */}
+                <ArrowPrevTailIcon />
+              </div>
             </div>
             <div className={css.secondSearchBlock}>
               <input type="text" placeholder={"Մուտքագրեք շաառավիղը"} />
@@ -71,7 +78,6 @@ const SecondPage = () => {
         </div>
         <div className={css.secondPageFooter}>
           <Image src={backIcon} alt="backIcon" />
-
           <Image src={geo} alt="geo" />
 
           <Image src={list} alt="list" />
