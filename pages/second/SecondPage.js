@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import css from "./SecondPage.module.css";
 import img from "../images/search_2.png";
 import menu from "../images/menu.png";
@@ -15,10 +15,12 @@ const SecondPage = () => {
   const [radius, setRadius] = useState(1000);
 
   const RADIUS = 1500;
-  const circle = useRef(null);
-  navigator.geolocation.getCurrentPosition(({ coords }) => {
-    setPosition([coords.latitude, coords.longitude]);
-  }, console.log("error"));
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(({ coords }) => {
+      setPosition([coords.latitude, coords.longitude]);
+    }, console.log("error"));
+  }, []);
 
   // console.log(position);
   return (
@@ -41,7 +43,7 @@ const SecondPage = () => {
                 onChange={({ target }) => setRadius(+target.value)}
                 placeholder={"Մուտքագրեք շաառավիղը"}
               />
-              <button onClick={()=> setRadius(+target.value)}>Որոնել</button>
+              <button onClick={() => setRadius(+target.value)}>Որոնել</button>
             </div>
             <div className={css.map}>
               <YMaps>
