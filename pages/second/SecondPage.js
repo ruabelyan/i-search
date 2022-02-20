@@ -4,7 +4,13 @@ import img from "../images/search_2.png";
 import menu from "../images/menu.png";
 import list from "../images/list.png";
 import geo from "../images/geolocation.png";
-import { Map, Placemark, Circle, YMaps } from "react-yandex-maps";
+import {
+  Map,
+  Placemark,
+  Circle,
+  YMaps,
+  SearchControl,
+} from "react-yandex-maps";
 import Image from "next/image";
 import backIcon from "../svg/back.png";
 import searchIcon from "../svg/search.png";
@@ -15,6 +21,7 @@ const SecondPage = () => {
   const [radius, setRadius] = useState(1000);
 
   const RADIUS = 1500;
+  
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords }) => {
@@ -31,29 +38,30 @@ const SecondPage = () => {
             <div style={{ height: "50px", width: "301px", marginTop: "10px" }}>
               <Image src={img} alt="search" />
             </div>
-            <div className={css.firstSearchBlock}>
+            {/* <div className={css.firstSearchBlock}>
               <input type="text" placeholder={"Մուտքագրեք որոնման տվյալները"} />
               <div className={css.inputStyles}>
                 <ArrowPrevTailIcon />
               </div>
-            </div>
+            </div> */}
             <div className={css.secondSearchBlock}>
               <input
                 type="text"
-                onChange={({ target }) => setRadius(+target.value)}
+                onChange={({ target }) => (radius = +target.value)}
                 placeholder={"Մուտքագրեք շաառավիղը"}
               />
-              <button onClick={() => setRadius(+target.value)}>Որոնել</button>
+              <button onClick={() => setRadius(radius)}>Որոնել</button>
             </div>
             <div className={css.map}>
               <YMaps>
                 <Map
-                  style={{ with: "80%", height: "72%", paddingTop: "10px" }}
+                  style={{ with: "80%", height: "78%", paddingTop: "10px" }}
                   defaultState={{ center: position, zoom: 13 }}
                   // instanceRef={(inst) => {
                   //   inst.events.add("click", console.log);
                   // }}
                 >
+                  <SearchControl sumbit={(events) => console.log(events)} />
                   <Placemark
                     geometry={position}
                     instanceRef={(inst) => {
@@ -83,7 +91,7 @@ const SecondPage = () => {
                   />
                 </Map>
               </YMaps>
-              <div className={css.mapSuggestion}>
+              {/* <div className={css.mapSuggestion}>
                 <div className={css.suggestionContainer}>
                   <span>Երևան մոլ - (Արշակունյանց 14) - 500մ</span>
                   <span>Երևան մոլ - (Արշակունյանց 14) - 500մ</span>
@@ -92,7 +100,7 @@ const SecondPage = () => {
                   <span>Երևան մոլ - (Արշակունյանց 14) - 500մ</span>
                   <span>Երևան մոլ - (Արշակունյանց 14) - 500մ</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

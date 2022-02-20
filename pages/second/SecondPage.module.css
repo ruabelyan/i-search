@@ -80,14 +80,14 @@
 }
 
 .secondSearchBlock input {
+  height: 32px;
   width: 60%;
-  line-height: 42px;
-  padding: 0 14px;
+  padding: 0 13px;
   font-family: inherit;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  border-radius: 11px;
+  font-size: 0.8rem;
   text-align: center;
-  color: #9e9e9e;
+  color: #7c7a7a;
   border: 1px solid #707070;
 }
 
@@ -98,7 +98,8 @@
   color: #fbfbfc;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  height: 32px;
 }
 
 .map {
