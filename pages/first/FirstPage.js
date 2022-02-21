@@ -7,7 +7,7 @@ const FirstPage = ({ setNextPage }) => {
   return (
     <div className={css.bg}>
       <div className={css.firstBLock}>
-        <h1>Արագ Որոնում</h1>
+        <h1>Արագ Որոնում1</h1>
         <Image className={css.image} src={img} alt="serch" />
       </div>
       <h2 className={css.boldTitle}>Արագ․ Թեթև․ Հարմար․</h2>
