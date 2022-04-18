@@ -4,6 +4,7 @@ import img from "../images/search_2.png";
 import menu from "../images/menu.png";
 import list from "../images/list.png";
 import geo from "../images/geolocation.png";
+import exchange from "../images/Group.png";
 import {
   Map,
   Placemark,
@@ -15,13 +16,13 @@ import Image from "next/image";
 import backIcon from "../svg/back.png";
 import searchIcon from "../svg/search.png";
 import ArrowPrevTailIcon from "../svg/back.svg";
+import Link from "next/link";
 
 const SecondPage = () => {
   const [position, setPosition] = useState([]);
   const [radius, setRadius] = useState(1000);
 
   const RADIUS = 1500;
-  
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords }) => {
@@ -108,7 +109,9 @@ const SecondPage = () => {
           <Image src={backIcon} alt="backIcon" />
           <Image src={geo} alt="geo" />
 
-          <Image src={list} alt="list" />
+          <Link href="rates">
+            <Image src={exchange} alt="list" />
+          </Link>
 
           <Image src={menu} alt="menu" />
         </div>
