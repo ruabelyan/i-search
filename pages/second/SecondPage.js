@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import React, { useEffect, useRef, useState } from "react";
 import css from "./SecondPage.module.css";
 import img from "../images/search_2.png";
 import menu from "../images/menu.png";
-import list from "../images/list.png";
 import geo from "../images/geolocation.png";
 import exchange from "../images/Group.png";
 import {
@@ -17,6 +17,10 @@ import backIcon from "../svg/back.png";
 import searchIcon from "../svg/search.png";
 import ArrowPrevTailIcon from "../svg/back.svg";
 import Link from "next/link";
+import Sidebar from "../sidebar";
+import { slide as Menu } from "react-burger-menu";
+import "react-open-weather-widget/lib/css/ReactWeather.css";
+var ReactWeather = require("react-open-weather-widget").default;
 
 const SecondPage = () => {
   const [position, setPosition] = useState([]);
@@ -33,6 +37,19 @@ const SecondPage = () => {
   // console.log(position);
   return (
     <div className={css.main}>
+      <Sidebar outerContainerId={"App"} />
+      <Menu>
+        <a id="home" className="menu-item" href="/rates">
+          Rates
+        </a>
+        <a id="about" className="menu-item" href="/news">
+          News
+        </a>
+        <a className="menu-item--small" href="">
+          Settings
+        </a>
+      </Menu>
+
       <div className={css.secondPage}>
         <div className={css.bg}>
           <div className={css.bgContainer}>
@@ -105,15 +122,24 @@ const SecondPage = () => {
             </div>
           </div>
         </div>
+        <div className="wheather">
+          <ReactWeather
+            forecast="today"
+            apikey="7cc0a3060e58f17a24e70b46ad9ed851"
+            type="city"
+            city="Yerevan"
+            lang="am"
+          />
+        </div>
         <div className={css.secondPageFooter}>
           <Image src={backIcon} alt="backIcon" />
           <Image src={geo} alt="geo" />
-
           <Link href="rates">
             <Image src={exchange} alt="list" />
           </Link>
-
-          <Image src={menu} alt="menu" />
+          <span style={{ opacity: "0" }}>
+            <Image style={{ opacity: "none" }} src={exchange} alt="list" />
+          </span>
         </div>
       </div>
     </div>
