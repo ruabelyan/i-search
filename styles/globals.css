@@ -89,3 +89,41 @@ a {
 .bm-burger-button > button {
   background-color: red;
 }
+
+.App {
+  font-family: "roboto", sans-serif;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input {
+  cursor: pointer;
+  border: 1px solid #5f6368;
+  border-radius: 6px;
+  padding: 0 0 0 12px;
+  height: 36px;
+  margin-left: 1rem;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+label:last-child {
+  grid-column: 2;
+}
+
+.container label {
+  margin-top: 1rem;
+}
+
+.result {
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 2rem;
+}

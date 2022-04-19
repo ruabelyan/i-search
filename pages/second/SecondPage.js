@@ -20,9 +20,12 @@ import Link from "next/link";
 import Sidebar from "../sidebar";
 import { slide as Menu } from "react-burger-menu";
 import "react-open-weather-widget/lib/css/ReactWeather.css";
-var ReactWeather = require("react-open-weather-widget").default;
+
+import { useRouter } from "next/router";
 
 const SecondPage = () => {
+  const router = useRouter();
+
   const [position, setPosition] = useState([]);
   const [radius, setRadius] = useState(1000);
 
@@ -40,13 +43,13 @@ const SecondPage = () => {
       <Sidebar outerContainerId={"App"} />
       <Menu>
         <a id="home" className="menu-item" href="/rates">
-          Rates
+          Արտարժույթի փոխանակում
         </a>
         <a id="about" className="menu-item" href="/news">
-          News
+          Նորություններ
         </a>
         <a className="menu-item--small" href="">
-          Settings
+          Կարգավորումներ
         </a>
       </Menu>
 
@@ -56,12 +59,12 @@ const SecondPage = () => {
             <div style={{ height: "50px", width: "301px", marginTop: "10px" }}>
               <Image src={img} alt="search" />
             </div>
-            {/* <div className={css.firstSearchBlock}>
+            <div className={css.firstSearchBlock}>
               <input type="text" placeholder={"Մուտքագրեք որոնման տվյալները"} />
               <div className={css.inputStyles}>
                 <ArrowPrevTailIcon />
               </div>
-            </div> */}
+            </div>
             <div className={css.secondSearchBlock}>
               <input
                 type="text"
@@ -123,16 +126,16 @@ const SecondPage = () => {
           </div>
         </div>
         <div className="wheather">
-          <ReactWeather
+          {/* <ReactWeather
             forecast="today"
             apikey="7cc0a3060e58f17a24e70b46ad9ed851"
             type="city"
             city="Yerevan"
             lang="am"
-          />
+          /> */}
         </div>
         <div className={css.secondPageFooter}>
-          <Image src={backIcon} alt="backIcon" />
+          <Image onClick={() => router.back()} src={backIcon} alt="backIcon" />
           <Image src={geo} alt="geo" />
           <Link href="rates">
             <Image src={exchange} alt="list" />
