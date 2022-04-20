@@ -9,7 +9,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 5px;
-  background-color: linear-gradient(45deg, #3f4f8a, #6c79a5);
+  background: linear-gradient(45deg, #3f4f8a, #6c79a5);
 }
 
 .image {
