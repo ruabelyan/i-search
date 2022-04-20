@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React, { useEffect, useRef, useState } from "react";
 import css from "./SecondPage.module.css";
-import img from "../images/search_2.png";
+import img from "../images/search_3.png";
 import menu from "../images/menu.png";
 import geo from "../images/geolocation.png";
 import exchange from "../images/Group.png";
