@@ -23,7 +23,7 @@ const rates = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://api.coingecko.com/api/v3/exchange_rates"
+        "https://api.currencyapi.com/v3/latest?apikey=jB3HVzcNdXRA92DH80cxbJTVVIfyx8YFefpDk7hi"
       );
 
       if (!response.ok) {
@@ -64,9 +64,9 @@ const rates = () => {
   useEffect(() => {
     axios
       .get(
-        "http://api.exchangeratesapi.io/v1/latest?access_key=3f64795a5f8cd497d7a823ffacf26680"
+        "https://api.currencyapi.com/v3/latest?apikey=jB3HVzcNdXRA92DH80cxbJTVVIfyx8YFefpDk7hi"
       )
-      .then((res) => setRate(res.data));
+      .then((res) => setRate(res.data.data));
     if (currencyList.length !== 0) {
       const { calc, unit } = callback();
       setUnit(unit);
@@ -74,9 +74,9 @@ const rates = () => {
     }
   }, [callback, currencyList.length]);
 
-  const { rates } = rate;
-  if (!rates) return null;
-  console.log(rates.RUS);
+  // const { rates } = rate;
+  if (!rate) return null;
+  // console.log(rate.AED?.value);
 
   return (
     <>
@@ -86,8 +86,8 @@ const rates = () => {
           <thead>
             <tr>
               <td>Հաշվարկվող արտարժույթ</td>
-              <td>{rate.base}</td>
-              <td>{rate.date}</td>
+              {/* <td>{rate.base}</td>
+              <td>{rate.date}</td> */}
             </tr>
             <tr>
               <th style={{ padding: "0 10px", backgroundColor: "#84b1d0" }}>
@@ -110,7 +110,7 @@ const rates = () => {
                 <АМ style={{ width: "30px" }} />
               </td>
               <td style={{ backgroundColor: "#dedede" }}>ARM</td>
-              <td style={{ backgroundColor: "#dedede" }}>{rates.AMD}</td>
+              <td style={{ backgroundColor: "#dedede" }}>{rate.AMD?.value}</td>
               <td style={{ backgroundColor: "#dedede" }}>
                 <span style={{ color: "green", fontSize: "32px" }}>
                   &#8593;
@@ -122,7 +122,7 @@ const rates = () => {
                 <BJ style={{ width: "30px" }} />
               </td>
               <td style={{ backgroundColor: "#efefef" }}>BOB</td>
-              <td style={{ backgroundColor: "#efefef" }}>{rates.BOB}</td>
+              <td style={{ backgroundColor: "#efefef" }}>{rate.BOB?.value}</td>
               <td style={{ backgroundColor: "#efefef" }}>
                 <span span style={{ color: "red", fontSize: "32px" }}>
                   &#8595;
@@ -134,7 +134,7 @@ const rates = () => {
                 <RU style={{ width: "30px" }} />
               </td>
               <td style={{ backgroundColor: "#dedede" }}>RUB</td>
-              <td style={{ backgroundColor: "#dedede" }}>{rates.RUB}</td>
+              <td style={{ backgroundColor: "#dedede" }}>{rate.RUB?.value}</td>
               <td style={{ backgroundColor: "#dedede" }}>
                 <span span style={{ color: "green", fontSize: "32px" }}>
                   &#8593;
@@ -146,7 +146,7 @@ const rates = () => {
                 <AC style={{ width: "30px" }} />
               </td>
               <td style={{ backgroundColor: "#efefef" }}>AED</td>
-              <td style={{ backgroundColor: "#efefef" }}>{rates.AED}</td>
+              <td style={{ backgroundColor: "#efefef" }}>{rate.AED?.value}</td>
               <td style={{ backgroundColor: "#efefef" }}>
                 <span span style={{ color: "red", fontSize: "32px" }}>
                   &#8595;
@@ -158,7 +158,7 @@ const rates = () => {
                 <AN style={{ width: "30px" }} />
               </td>
               <td style={{ backgroundColor: "#efefef" }}>ANG</td>
-              <td style={{ backgroundColor: "#efefef" }}>{rates.ANG}</td>
+              <td style={{ backgroundColor: "#efefef" }}>{rate.ANG?.value}</td>
               <td style={{ backgroundColor: "#efefef" }}>
                 <span span style={{ color: "red", fontSize: "32px" }}>
                   &#8595;
