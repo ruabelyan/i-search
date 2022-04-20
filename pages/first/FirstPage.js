@@ -15,7 +15,7 @@ const FirstPage = ({ setNextPage }) => {
         <h1>Արագ Որոնում</h1>
         <Image className={css.image} src={img} alt="serch" />
       </div>
-      <h2 className={css.boldTitle}>Արագ․ Թեթև․ Հարմար․</h2>
+      <h2 className={css.boldTitle}>Արագ , Թեթև , Հարմար</h2>
       <div className={css.secondBlock}>
         <div className={css.firstPageFooter}>
           <button onClick={() => setNextPage(true)} className={css.PageButton}>

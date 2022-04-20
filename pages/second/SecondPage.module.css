@@ -20,7 +20,7 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  background-color: #557999;
+  background: linear-gradient(#3F4F88, #9198e5);
 }
 
 .bgContainer {
@@ -93,7 +93,7 @@
 
 .secondSearchBlock button {
   width: 27.04%;
-  background-color: #5694c2;
+  background-color: #3f4f87;
   height: 42px;
   color: #fbfbfc;
   border: none;

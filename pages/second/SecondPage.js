@@ -3,8 +3,10 @@ import React, { useEffect, useRef, useState } from "react";
 import css from "./SecondPage.module.css";
 import img from "../images/search_3.png";
 import menu from "../images/menu.png";
-import geo from "../images/geolocation.png";
-import exchange from "../images/Group.png";
+// import geo from "../images/geolocation.png";
+import backIcon from "../images/icon1.png";
+import geo from "../images/icon2.png";
+import exchange from "../images/icon3.png";
 import {
   Map,
   Placemark,
@@ -13,7 +15,8 @@ import {
   SearchControl,
 } from "react-yandex-maps";
 import Image from "next/image";
-import backIcon from "../svg/back.png";
+// import backIcon from "../svg/back.png";
+
 import searchIcon from "../svg/search.png";
 import ArrowPrevTailIcon from "../svg/back.svg";
 import Link from "next/link";
