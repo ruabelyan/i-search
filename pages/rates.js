@@ -23,7 +23,7 @@ const rates = () => {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://api.currencyapi.com/v3/latest?apikey=jB3HVzcNdXRA92DH80cxbJTVVIfyx8YFefpDk7hi"
+        "https://api.coingecko.com/api/v3/exchange_rates"
       );
 
       if (!response.ok) {
