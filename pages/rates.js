@@ -85,21 +85,45 @@ const rates = () => {
         <table style={{ width: "100%", textAlign: "center" }}>
           <thead>
             <tr>
-              <td>Հաշվարկվող արտարժույթ</td>
+              {/* <td>Հաշվարկվող արտարժույթ</td> */}
               {/* <td>{rate.base}</td>
               <td>{rate.date}</td> */}
             </tr>
-            <tr>
-              <th style={{ padding: "0 10px", backgroundColor: "#84b1d0" }}>
+            <tr style={{ fontSize: "14px" }}>
+              <th
+                style={{
+                  padding: "0 10px",
+                  backgroundColor: "#84b1d0",
+                  fontWeight: "100",
+                }}
+              >
                 Երկիր
               </th>
-              <th style={{ padding: "0 10px", backgroundColor: "#84b1d0" }}>
+              <th
+                style={{
+                  padding: "0 10px",
+                  backgroundColor: "#84b1d0",
+                  fontWeight: "100",
+                }}
+              >
                 ISO(կոդ)
               </th>
-              <th style={{ padding: "0 10px", backgroundColor: "#84b1d0" }}>
+              <th
+                style={{
+                  padding: "0 10px",
+                  backgroundColor: "#84b1d0",
+                  fontWeight: "100",
+                }}
+              >
                 Արտարժույթ
               </th>
-              <th style={{ padding: "0 10px", backgroundColor: "#84b1d0" }}>
+              <th
+                style={{
+                  padding: "0 10px",
+                  backgroundColor: "#84b1d0",
+                  fontWeight: "100",
+                }}
+              >
                 Տատանում
               </th>
             </tr>
@@ -169,7 +193,7 @@ const rates = () => {
         </table>
       </div>
       <div className="App">
-        <h1 style={{ textAlign: "center" }}>Հաշվիչ</h1>
+        <h2 style={{ textAlign: "center" }}>Հաշվիչ</h2>
 
         <div className="container">
           <div className="result">
