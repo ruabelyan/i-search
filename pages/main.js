@@ -44,29 +44,20 @@ const SecondPage = () => {
     <div className={css.main}>
       <Sidebar outerContainerId={"App"} />
       <Menu>
-        <a
-          style={{ fontSize: "18px" }}
-          className="menu-item--small"
-          href="/main"
-        >
-          Գլխավոր
-        </a>
-        <a
-          style={{ fontSize: "18px" }}
-          id="home"
-          className="menu-item"
-          href="/rates"
-        >
-          Արտարժույթի փոխանակում
-        </a>
-        <a
-          style={{ fontSize: "18px" }}
+        <div style={{ fontSize: "16px" }} className="menu-item--small">
+          <Link href="/main">Գլխավոր</Link>
+        </div>
+        <div style={{ fontSize: "16px" }} className="menu-item">
+          <Link href="/main">Արտարժույթի փոխանակում</Link>
+        </div>
+        <div
+          style={{ fontSize: "16px" }}
           id="about"
           className="menu-item"
           href="/news"
         >
-          Նորություններ
-        </a>
+          <Link href="/news">Նորություններ</Link>
+        </div>
       </Menu>
 
       <div className={css.secondPage}>
@@ -92,7 +83,7 @@ const SecondPage = () => {
             <div className={css.map}>
               <YMaps>
                 <Map
-                  style={{ with: "80%", height: "78%", paddingTop: "10px" }}
+                  style={{ with: "80%", height: "75%", paddingTop: "10px" }}
                   defaultState={{ center: position, zoom: 13 }}
                   // instanceRef={(inst) => {
                   //   inst.events.add("click", console.log);
@@ -160,8 +151,8 @@ const SecondPage = () => {
             </Link>
           </div>
           <div>
-            <Link href="main">
-              <Image src={news} alt="geo" />
+            <Link href="/news">
+              <Image src={news} alt="news" />
             </Link>
           </div>
           <span style={{ opacity: "0" }}>

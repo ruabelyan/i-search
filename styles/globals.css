@@ -137,6 +137,8 @@ label:last-child {
   margin: 10px auto;
   border-radius: 24px;
   min-height: 180px;
+  background: white;
+  margin-bottom: 0 !important;
 }
 
 .news__img {
@@ -155,6 +157,7 @@ label:last-child {
   width: 100%;
   height: auto;
   min-height: 180px;
+  object-fit: cover;
 }
 
 .news__img-img span {
@@ -240,6 +243,8 @@ label:last-child {
 
 .time {
   color: #b8b7ad;
+  font-size: 12px;
+  width: 80px;
 }
 
 .top_part-level {

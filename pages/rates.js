@@ -93,35 +93,26 @@ const rates = () => {
     <div className={css.main}>
       <Sidebar outerContainerId={"App"} />
       <Menu>
-        <a
-          style={{ fontSize: "18px" }}
-          className="menu-item--small"
-          href="/main"
-        >
-          Գլխավոր
-        </a>
-        <a
-          style={{ fontSize: "18px" }}
-          id="home"
-          className="menu-item"
-          href="/rates"
-        >
-          Արտարժույթի փոխանակում
-        </a>
-        <a
-          style={{ fontSize: "18px" }}
+        <div style={{ fontSize: "16px" }} className="menu-item--small">
+          <Link href="/main">Գլխավոր</Link>
+        </div>
+        <div style={{ fontSize: "16px" }} className="menu-item">
+          <Link href="/main">Արտարժույթի փոխանակում</Link>
+        </div>
+        <div
+          style={{ fontSize: "16px" }}
           id="about"
           className="menu-item"
           href="/news"
         >
-          Նորություններ
-        </a>
+          <Link href="/news">Նորություններ</Link>
+        </div>
       </Menu>
       <div
         className={css.secondPage}
         style={{ background: "linear-gradient(45deg, #3f4f8a, #6c79a5)" }}
       >
-        <div style={{ padding: "1rem" }}>
+        <div>
           <h3
             style={{
               textAlign: "center",
@@ -132,10 +123,10 @@ const rates = () => {
           >
             Արտարժույթի փոխանակում
           </h3>
-          <div>
+          <div style={{ padding: "1rem" }}>
             <table style={{ width: "100%", textAlign: "center" }}>
               <thead>
-                <tr style={{ fontSize: "14px" }}>
+                <tr style={{ fontSize: "12px" }}>
                   <th
                     style={{
                       padding: "0 10px",
@@ -219,7 +210,7 @@ const rates = () => {
                 </tr>
                 <tr>
                   <td style={{ backgroundColor: "#efefef" }}>
-                    <AC style={{ width: "30px" }} />
+                    <divC style={{ width: "30px" }} />
                   </td>
                   <td style={{ backgroundColor: "#efefef" }}>AED</td>
                   <td style={{ backgroundColor: "#efefef" }}>
@@ -331,8 +322,8 @@ const rates = () => {
               {router.pathname === "/rates" && <Doth left={5} />}
             </div>
             <div>
-              <Link href="main">
-                <Image src={news} alt="geo" />
+              <Link href="news">
+                <Image src={news} alt="news" />
               </Link>
             </div>
 
