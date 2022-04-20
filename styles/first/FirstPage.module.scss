@@ -47,6 +47,7 @@
   align-items: center;
 }
 .PageButton {
+  animation: fade-show 0.3s;
   font-size: 20px;
   border: none;
   padding: 10px 45px;
@@ -61,4 +62,13 @@
 }
 .Pagetext span {
   font-weight: bold;
+}
+
+@keyframes fade-show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

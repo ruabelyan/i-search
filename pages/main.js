@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React, { useEffect, useRef, useState } from "react";
-import css from "./SecondPage.module.css";
-import img from "../images/search_3.png";
-import menu from "../images/menu.png";
-// import geo from "../images/geolocation.png";
-import backIcon from "../images/icon1.png";
-import geo from "../images/icon2.png";
-import exchange from "../images/icon3.png";
+import css from "../styles/second/SecondPage.module.css";
+import img from "./images/search_3.png";
+import backIcon from "./images/back.png";
+import geo from "./images/icon2.png";
+import news from "./images/news.png";
+import exchange from "./images/icon3.png";
 import {
   Map,
   Placemark,
@@ -15,16 +14,15 @@ import {
   SearchControl,
 } from "react-yandex-maps";
 import Image from "next/image";
-// import backIcon from "../svg/back.png";
 
-import searchIcon from "../svg/search.png";
-import ArrowPrevTailIcon from "../svg/back.svg";
+import ArrowPrevTailIcon from "./svg/back.svg";
 import Link from "next/link";
-import Sidebar from "../sidebar";
+import Sidebar from "./sidebar";
 import { slide as Menu } from "react-burger-menu";
 import "react-open-weather-widget/lib/css/ReactWeather.css";
 
 import { useRouter } from "next/router";
+import Doth from "./components/doth";
 
 const SecondPage = () => {
   const router = useRouter();
@@ -40,19 +38,34 @@ const SecondPage = () => {
     }, console.log("error"));
   }, []);
 
-  // console.log(position);
+  console.log(router.pathname);
+
   return (
     <div className={css.main}>
       <Sidebar outerContainerId={"App"} />
       <Menu>
-        <a id="home" className="menu-item" href="/rates">
+        <a
+          style={{ fontSize: "18px" }}
+          className="menu-item--small"
+          href="/main"
+        >
+          Գլխավոր
+        </a>
+        <a
+          style={{ fontSize: "18px" }}
+          id="home"
+          className="menu-item"
+          href="/rates"
+        >
           Արտարժույթի փոխանակում
         </a>
-        <a id="about" className="menu-item" href="/news">
+        <a
+          style={{ fontSize: "18px" }}
+          id="about"
+          className="menu-item"
+          href="/news"
+        >
           Նորություններ
-        </a>
-        <a className="menu-item--small" href="">
-          Կարգավորումներ
         </a>
       </Menu>
 
@@ -128,21 +141,29 @@ const SecondPage = () => {
             </div>
           </div>
         </div>
-        <div className="wheather">
-          {/* <ReactWeather
-            forecast="today"
-            apikey="7cc0a3060e58f17a24e70b46ad9ed851"
-            type="city"
-            city="Yerevan"
-            lang="am"
-          /> */}
-        </div>
         <div className={css.secondPageFooter}>
-          <Image onClick={() => router.back()} src={backIcon} alt="backIcon" />
-          <Image src={geo} alt="geo" />
-          <Link href="rates">
-            <Image src={exchange} alt="list" />
-          </Link>
+          <div>
+            <Image
+              onClick={() => router.back()}
+              src={backIcon}
+              alt="backIcon"
+            />
+          </div>
+          <div>
+            <Image src={geo} alt="geo" />
+            {router.pathname === "/main" && <Doth />}
+          </div>
+
+          <div>
+            <Link href="rates">
+              <Image src={exchange} alt="list" />
+            </Link>
+          </div>
+          <div>
+            <Link href="main">
+              <Image src={news} alt="geo" />
+            </Link>
+          </div>
           <span style={{ opacity: "0" }}>
             <Image style={{ opacity: "none" }} src={exchange} alt="list" />
           </span>
