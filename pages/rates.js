@@ -75,8 +75,7 @@ const rates = () => {
   useEffect(() => {
     axios
       .get(
-        // "https://api.currencyapi.com/v3/latest?apikey=jB3HVzcNdXRA92DH80cxbJTVVIfyx8YFefpDk7hi"
-        "1"
+        "https://api.currencyapi.com/v3/latest?apikey=jB3HVzcNdXRA92DH80cxbJTVVIfyx8YFefpDk7hi"
       )
       .then((res) => setRate(res.data.data));
     if (currencyList.length !== 0) {
