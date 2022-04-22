@@ -20,7 +20,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: linear-gradient(45deg, #3f4f8a, #6c79a5);
+  background: white;
 }
 
 .searchButton {
@@ -65,7 +65,7 @@
 .firstSearchBlock input {
   width: 70%;
   line-height: 42px;
-  padding: 0 30px;
+  padding: 0 12px;
   font-family: inherit;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -117,7 +117,7 @@
 .mapSuggestion {
   position: absolute;
   width: 91.8%;
-  background-color: #fff;
+  background-color: linear-gradient(45deg, #3f4f8a, #6c79a5);
   border: 1px solid black;
   height: 100px;
   top: 5%;
@@ -152,7 +152,7 @@
 }
 
 .secondPageFooter {
-  background: #fff;
+  background: linear-gradient(45deg, #3f4f8a, #6c79a5) !important;
   width: 100%;
   position: fixed;
   left: 0;
