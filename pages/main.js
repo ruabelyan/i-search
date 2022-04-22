@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React, { useEffect, useRef, useState } from "react";
 import css from "../styles/second/SecondPage.module.css";
-import img from "./images/search_3.png";
+import img from "./images/search_5.png";
 import backIcon from "./images/back.png";
 import geo from "./images/icon2.png";
 import news from "./images/news.png";
@@ -27,6 +27,7 @@ import Doth from "./components/doth";
 import { layer_names } from "../layerNames";
 import Range from "./components/range";
 import { isoCountries } from "../countries";
+import Loader2 from "./loader/Loader2";
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -167,7 +168,7 @@ const SecondPage = () => {
         nextBtn.style.visibility = "hidden";
       } else {
         nextBtn.style.visibility = "visible";
-        nextBtn.innerText = `Next (${offset + pageLength} of ${count})`;
+        nextBtn.innerText = `Հաջորդ էջ (${offset + pageLength}-ը ${count}-ից)`;
       }
     });
   }
@@ -211,7 +212,7 @@ const SecondPage = () => {
       <div className={css.secondPage}>
         <div className={css.bg}>
           <div className={css.bgContainer}>
-            <div style={{ height: "50px", width: "301px", marginTop: "10px" }}>
+            <div style={{ height: "40px", width: "312px", marginTop: "10px" }}>
               <Image src={img} alt="search" />
             </div>
             <div className={css.firstSearchBlock}>
@@ -244,6 +245,7 @@ const SecondPage = () => {
 
             <div className={css.secondSearchBlock}>
               <Range />
+              <Loader2 />
             </div>
             <div
               style={{
@@ -269,7 +271,7 @@ const SecondPage = () => {
                         type="button"
                         className="btn btn-primary"
                       >
-                        Next
+                        Հաջորդ էջ
                       </button>
                     </nav>
                   </div>
