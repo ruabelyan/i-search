@@ -240,7 +240,6 @@ const SecondPage = () => {
               >
                 Որոնել
               </button>
-              <div className={css.inputStyles}></div>
             </div>
 
             <div className={css.secondSearchBlock}>
