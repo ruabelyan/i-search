@@ -303,7 +303,15 @@ const SecondPage = () => {
             >
               {prevColApi ? (
                 <div className="container">
-                  <div id="info" className="alert alert-primary"></div>
+                  <div
+                    id="info"
+                    className="alert alert-primary"
+                    style={{
+                      color: "#2a1616",
+                      backgroundColor: "#f8607075",
+                      borderColor: "#b6d4fe",
+                    }}
+                  ></div>
                   <div className="row">
                     <div className="col-12 col-lg-5">
                       <div id="list" className="list-group"></div>
@@ -320,6 +328,7 @@ const SecondPage = () => {
                           style={{
                             background: "#F86070",
                             borderColor: "#F86070",
+                            marginTop: "10px",
                           }}
                         >
                           Հաջորդ էջ
