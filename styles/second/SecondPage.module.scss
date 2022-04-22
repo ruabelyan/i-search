@@ -12,7 +12,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg, #3f4f8a, #6c79a5);
+  // background: linear-gradient(45deg, #3f4f8a, #6c79a5);
+  background: white;
 }
 .searchButton {
   width: 25%;
@@ -46,7 +47,7 @@
 .firstSearchBlock input {
   width: 70%;
   line-height: 42px;
-  padding: 0 30px;
+  padding: 0 12px;
   font-family: inherit;
   border-radius: 8px;
   font-size: 0.9rem;
@@ -90,7 +91,8 @@
 .mapSuggestion {
   position: absolute;
   width: 91.8%;
-  background-color: #fff;
+  // background-color: #fff;
+  background-color: linear-gradient(45deg, #3f4f8a, #6c79a5);
   border: 1px solid black;
   height: 100px;
   top: 5%;
@@ -121,7 +123,8 @@
   letter-spacing: 0.4px;
 }
 .secondPageFooter {
-  background: #fff;
+  // background-color: red !important;
+  background: linear-gradient(45deg, #3f4f8a, #6c79a5) !important;
   width: 100%;
   position: fixed;
   left: 0;

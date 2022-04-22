@@ -92,6 +92,7 @@ const SecondPage = () => {
   const router = useRouter();
   const [inputValue, setInputValue] = useState([]);
   const [radius, setRadius] = useState(1000);
+  const [search, setSearch] = useState(false);
 
   const apiKey = "5ae2e3f221c38a28845f05b6de78eb52c36e8f89040073523a3752d4";
 
@@ -153,7 +154,6 @@ const SecondPage = () => {
     });
     return a;
   }
-
   function loadList() {
     apiGet(
       "radius",
@@ -219,7 +219,7 @@ const SecondPage = () => {
               <input
                 onInput={({ target }) => setInputValue(target.value)}
                 type="text"
-                placeholder={"Մուտքագրեք Երկրի Անունը"}
+                placeholder={"Մուտքագրեք երկրի անունը"}
               />
               <button
                 className={css.searchButton}
@@ -236,10 +236,16 @@ const SecondPage = () => {
                       "info"
                     ).innerHTML = `<p>${message}</p>`;
                   });
+
+                  setSearch(true);
+                  setTimeout(() => {
+                    setSearch(false);
+                  }, 20000000);
                 }}
               >
-                Որոնել
+                {!search ? <div>Որոնել</div> : <Loader2 />}
               </button>
+              {/* <div className={css.inputStyles}></div> */}
             </div>
 
             <div className={css.secondSearchBlock}>
@@ -269,6 +275,11 @@ const SecondPage = () => {
                         id="next_button"
                         type="button"
                         className="btn btn-primary"
+                        // className={{ background: "red" }}
+                        style={{
+                          background: "#6C7DB9",
+                          borderColor: "#6C7DB9",
+                        }}
                       >
                         Հաջորդ էջ
                       </button>
