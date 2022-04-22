@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import css from "../../styles/first/FirstPage.module.css";
 
 const PrettoSlider = styled(Slider)({
-  color: "white",
+  color: "#f86070",
   height: 8,
   "& .MuiSlider-track": {
     border: "none",
@@ -13,7 +13,7 @@ const PrettoSlider = styled(Slider)({
   "& .MuiSlider-thumb": {
     height: 24,
     width: 24,
-    backgroundColor: "#fff",
+    backgroundColor: "white",
     border: "2px solid currentColor",
     "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
       boxShadow: "inherit",
@@ -30,7 +30,7 @@ const PrettoSlider = styled(Slider)({
     width: 32,
     height: 32,
     borderRadius: "50% 50% 50% 0",
-    backgroundColor: "#6c7db9",
+    backgroundColor: "#F86070",
     transformOrigin: "bottom left",
     transform: "translate(50%, -100%) rotate(-45deg) scale(0)",
     "&:before": { display: "none" },
@@ -45,7 +45,7 @@ const PrettoSlider = styled(Slider)({
 
 export default function Range() {
   return (
-    <Box className={css.range_selector} sx={{ width: 320 }}>
+    <Box className={css.range_selector} sx={{ width: 280 }}>
       <PrettoSlider
         valueLabelDisplay="auto"
         aria-label="pretto slider"

@@ -11,10 +11,11 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import css from "../styles/second/SecondPage.module.css";
 import img from "./images/search_3.png";
-import backIcon from "./images/back.png";
-import geo from "./images/icon2.png";
-import news from "./images/news.png";
-import exchange from "./images/icon3.png";
+import Logo from "./images/Group-5.svg";
+import Euro from "./images/icons/euro.svg";
+import Back from "./images/icons/back.svg";
+import News from "./images/icons/news.svg";
+import Location from "./images/icons/map.svg";
 import Link from "next/link";
 import Doth from "./components/doth";
 import Sidebar from "./sidebar";
@@ -75,7 +76,8 @@ const rates = () => {
   useEffect(() => {
     axios
       .get(
-        "https://api.currencyapi.com/v3/latest?apikey=jB3HVzcNdXRA92DH80cxbJTVVIfyx8YFefpDk7hi"
+        // "https://api.currencyapi.com/v3/latest?apikey=jB3HVzcNdXRA92DH80cxbJTVVIfyx8YFefpDk7hi",
+        "https://api.currencyapi.com/v3/latest?apikey="
       )
       .then((res) => setRate(res.data.data));
     if (currencyList.length !== 0) {
@@ -253,7 +255,7 @@ const rates = () => {
                   style={{
                     padding: "0 18px",
                     color: "#9e9e9e",
-                    border: "1px solid #707070",
+                    border: "1px solid #F86070",
                     borderRadius: "8px",
                   }}
                   className="input"
@@ -305,29 +307,23 @@ const rates = () => {
           </div>
           <div className={css.secondPageFooter}>
             <div>
-              <Image
-                onClick={() => router.back()}
-                src={backIcon}
-                alt="backIcon"
-              />
+              <Back onClick={() => router.back()} />
             </div>
-            <div>
+            <div style={{ position: "relative" }}>
               <Link href="main">
-                <Image src={geo} alt="geo" />
+                <Location />
               </Link>
             </div>
             <div style={{ position: "relative" }}>
-              <Image src={exchange} alt="rate" />
-              {router.pathname === "/rates" && <Doth left={5} />}
+              <Euro />
+              <Doth left={-3} />
             </div>
             <div>
-              <Link href="news">
-                <Image src={news} alt="news" />
-              </Link>
+              <News />
             </div>
 
-            <span style={{ opacity: "0" }}>
-              <Image style={{ opacity: "none" }} src={exchange} alt="list" />
+            <span style={{ opacity: "0", width: "20px" }}>
+              <Image src={img} alt="list" />
             </span>
           </div>
         </div>

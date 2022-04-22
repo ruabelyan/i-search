@@ -4,6 +4,11 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 100%;
+  /* border: solid 2px #000; */
+}
+#__next {
+  height: 100%;
 }
 
 a {
@@ -42,21 +47,31 @@ a {
 
 .bm-burger-button {
   position: fixed;
-  width: 36px;
-  height: 30px;
-  right: 7%;
-  bottom: 21px;
+  width: 30px;
+  height: 22px;
+  right: 8%;
+  bottom: 23px;
 }
 
 /* Color/shape of burger icon bars */
 .bm-burger-bars {
-  background: #3f4f83;
+  background: #979797;
 }
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  position: absolute;
+  width: 38px !important;
+  height: 38px !important;
+  right: 245px !important;
+  top: 60px !important;
+  background: rgba(118, 118, 128, 0.12);
+  border-radius: 10px;
+}
+.bm-cross-button > span {
+  position: absolute;
+  top: 12px !important;
+  right: 20px !important;
 }
 
 /* Color/shape of close button cross */
@@ -66,7 +81,7 @@ a {
 
 /* General sidebar styles */
 .bm-menu {
-  background: #000;
+  background: #fff;
   padding: 2.5em 1.5em 0;
   font-size: 1.15em;
 }
@@ -254,4 +269,47 @@ label:last-child {
 .author {
   color: #b8b7ad;
   font-size: 12px;
+}
+
+.menu-item > a {
+  color: #2a2a2a;
+  text-decoration: none;
+  margin-left: 6px;
+  font-weight: 500;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+.swiper-backface-hidden .swiper-slide {
+  display: block;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

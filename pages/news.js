@@ -12,10 +12,11 @@ import Doth from "./components/doth";
 import { useRouter } from "next/router";
 import css from "../styles/second/SecondPage.module.css";
 import img from "./images/search_3.png";
-import backIcon from "./images/back.png";
-import geo from "./images/icon2.png";
-import news from "./images/news.png";
-import exchange from "./images/icon3.png";
+import Logo from "./images/Group-5.svg";
+import Euro from "./images/icons/euro.svg";
+import Back from "./images/icons/back.svg";
+import NewsIcon from "./images/icons/news.svg";
+import Location from "./images/icons/map.svg";
 
 console.log(mockData);
 const News = () => {
@@ -86,27 +87,28 @@ const News = () => {
           </div>
         </div>
       ))}
+
       <div className={css.secondPageFooter}>
         <div>
-          <Image onClick={() => router.back()} src={backIcon} alt="backIcon" />
+          <Back onClick={() => router.back()} />
         </div>
-        <div>
+        <div style={{ position: "relative" }}>
           <Link href="main">
-            <Image src={geo} alt="geo" />
+            <Location />
           </Link>
         </div>
-
         <div>
           <Link href="rates">
-            <Image src={exchange} alt="rates" />
+            <Euro />
           </Link>
         </div>
-        <div>
-          <Image src={news} alt="news" />
-          {router.pathname === "/news" && <Doth />}
+        <div style={{ position: "relative" }}>
+          <NewsIcon />
+          <Doth left={-6} />
         </div>
-        <span style={{ opacity: "0" }}>
-          <Image style={{ opacity: "none" }} src={exchange} alt="list" />
+
+        <span style={{ opacity: "0", width: "20px" }}>
+          <Image src={img} alt="list" />
         </span>
       </div>
     </div>

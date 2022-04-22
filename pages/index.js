@@ -1,6 +1,6 @@
 import React from "react";
 import css from "../styles/first/FirstPage.module.css";
-import img from "./images/search3.png";
+import img from "./images/Group-5.png";
 import Image from "next/image";
 // import { RateApi, rateApi } from "../api/rate";
 import { useState } from "react";
@@ -18,7 +18,12 @@ const FirstPage = ({ setNextPage }) => {
     <div className={css.bg}>
       {/* <RateApi onRates={(rate) => setRates(rate)} /> */}
       <div className={css.firstBLock}>
-        <h1>Արագ Որոնում</h1>
+        <div>
+          {/* <h3 style={{ margin: "0", color: "#F86070", textAlign: "left" }}>
+            Արագ{" "}
+          </h3>
+          <h1 style={{ margin: "0" }}> Որոնում</h1> */}
+        </div>
         <div className={css.image}>
           <Image src={img} alt="serch" />
         </div>

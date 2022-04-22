@@ -5,7 +5,7 @@
 
 .secondPage {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 
 .bg {
@@ -20,12 +20,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: white;
+  background: url("../../pages/images/map-scren.png");
 }
 
 .searchButton {
   width: 25%;
-  background-color: #6c7db9;
+  background-color: #f86070;
   color: #fbfbfc;
   border: none;
   border-radius: 8px;
@@ -50,16 +50,17 @@
       justify-content: space-around;
 }
 
-.bgContainer img {
-  width: 78.62%;
-  height: 8%;
-}
-
 .firstSearchBlock {
   position: relative;
   width: 100%;
   padding: 1rem;
   margin-top: 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .firstSearchBlock input {
@@ -68,9 +69,11 @@
   padding: 0 12px;
   font-family: inherit;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: #9e9e9e;
-  border: 1px solid #707070;
+  border: none;
+  -webkit-box-shadow: 0px 0px 10px 1px;
+          box-shadow: 0px 0px 10px 1px;
 }
 
 .firstSearchBlock img {
@@ -152,7 +155,7 @@
 }
 
 .secondPageFooter {
-  background: linear-gradient(45deg, #3f4f8a, #6c79a5) !important;
+  background: white;
   width: 100%;
   position: fixed;
   left: 0;
@@ -167,6 +170,8 @@
       -ms-flex-align: center;
           align-items: center;
   z-index: 2;
+  -webkit-box-shadow: 1px 1px;
+          box-shadow: 1px 1px;
 }
 
 .secondPageFooter img {

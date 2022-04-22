@@ -1,20 +1,24 @@
 .bg {
-  height: 100vh;
   color: #fbfbfc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   padding: 5px;
   background-color: #557999;
+  max-width: 452px;
+  background: url("../../pages/images/background.png");
+  height: 100%;
 }
 
 .image {
+  margin-top: 90px;
   width: 66vw !important;
   height: 60.19%;
+  max-width: 290px;
 }
 
 .firstBLock {
@@ -24,14 +28,14 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .boldTitle {
@@ -47,8 +51,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  -ms-flex-align: end;
+  align-items: end;
 }
 
 .firstPageFooter {
@@ -59,31 +63,32 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .PageButton {
   -webkit-animation: fade-show 0.3s;
-          animation: fade-show 0.3s;
+  animation: fade-show 0.3s;
   font-size: 20px;
   border: none;
   padding: 10px 45px;
   color: #fbfbfc;
-  background-color: #3897db;
+  background-color: #f86070;
   border-radius: 8px;
+  margin-top: 90px;
 }
 
 .Pagetext {
   font-size: 12px;
   text-align: center;
-  margin-bottom: -85px;
+  margin-bottom: -95px;
 }
 
 .Pagetext span {

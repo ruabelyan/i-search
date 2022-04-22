@@ -1,11 +1,17 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import React, { useEffect, useRef, useState } from "react";
 import css from "../styles/second/SecondPage.module.css";
-import img from "./images/search_5.png";
-import backIcon from "./images/back.png";
-import geo from "./images/icon2.png";
-import news from "./images/news.png";
-import exchange from "./images/icon3.png";
+import img from "./images/Group-6.png";
+import erevan from "./images/slider/erevan.jpg";
+import dilijan from "./images/slider/dilijan.jpg";
+import gyumri from "./images/slider/gyumri.jpg";
+import caxkadzor from "./images/slider/caxkadzor.jpg";
+import Logo from "./images/Group-5.svg";
+import Euro from "./images/icons/euro.svg";
+import Back from "./images/icons/back.svg";
+import News from "./images/icons/news.svg";
+import Location from "./images/icons/map.svg";
+
 import {
   Map,
   Placemark,
@@ -28,6 +34,12 @@ import { layer_names } from "../layerNames";
 import Range from "./components/range";
 import { isoCountries } from "../countries";
 import Loader2 from "./loader/Loader2";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -93,6 +105,7 @@ const SecondPage = () => {
   const [inputValue, setInputValue] = useState([]);
   const [radius, setRadius] = useState(1000);
   const [search, setSearch] = useState(false);
+  const [prevColApi, setPrevColApi] = useState(false);
 
   const apiKey = "5ae2e3f221c38a28845f05b6de78eb52c36e8f89040073523a3752d4";
 
@@ -108,7 +121,10 @@ const SecondPage = () => {
       }
       fetch(otmAPI)
         .then((response) => response.json())
-        .then((data) => resolve(data))
+        .then((data) => {
+          resolve(data);
+          setPrevColApi(true);
+        })
         .catch(function (err) {
           console.log("Fetch Error :-S", err);
         });
@@ -187,24 +203,48 @@ const SecondPage = () => {
     });
   }
 
-  useEffect(() => {}, []);
-
   return (
     <div className={css.main}>
       <Sidebar outerContainerId={"App"} />
-      <Menu>
-        <div style={{ fontSize: "16px" }} className="menu-item--small">
+      <Menu right>
+        <div
+          style={{
+            fontSize: "15px",
+            display: "flex",
+            top: "140px",
+            position: "absolute",
+          }}
+          className="menu-item"
+        >
+          <Euro />
           <Link href="/main">Գլխավոր</Link>
         </div>
-        <div style={{ fontSize: "16px" }} className="menu-item">
+        <div
+          style={{
+            fontSize: "15px",
+            display: "flex",
+            top: "190px",
+            position: "absolute",
+          }}
+          className="menu-item"
+        >
+          <Euro />
+
           <Link href="/main">Արտարժույթի փոխանակում</Link>
         </div>
         <div
-          style={{ fontSize: "16px" }}
+          style={{
+            fontSize: "15px",
+            display: "flex",
+            top: "240px",
+            position: "absolute",
+          }}
           id="about"
           className="menu-item"
           href="/news"
         >
+          <Euro />
+
           <Link href="/news">Նորություններ</Link>
         </div>
       </Menu>
@@ -213,13 +253,14 @@ const SecondPage = () => {
         <div className={css.bg}>
           <div className={css.bgContainer}>
             <div style={{ height: "40px", width: "312px", marginTop: "10px" }}>
-              <Image src={img} alt="search" />
+              <Logo />
+              {/* <Image src={img} alt="search" /> */}
             </div>
             <div className={css.firstSearchBlock}>
               <input
                 onInput={({ target }) => setInputValue(target.value)}
                 type="text"
-                placeholder={"Մուտքագրեք երկրի անունը"}
+                placeholder={"Մուտքագրեք տարածաշրջանը"}
               />
               <button
                 className={css.searchButton}
@@ -240,7 +281,7 @@ const SecondPage = () => {
                   setSearch(true);
                   setTimeout(() => {
                     setSearch(false);
-                  }, 20000000);
+                  }, 2000);
                 }}
               >
                 {!search ? <div>Որոնել</div> : <Loader2 />}
@@ -250,7 +291,6 @@ const SecondPage = () => {
 
             <div className={css.secondSearchBlock}>
               <Range />
-              <Loader2 />
             </div>
             <div
               style={{
@@ -261,35 +301,112 @@ const SecondPage = () => {
               }}
               className={css.map}
             >
-              <div className="container">
-                <div id="info" className="alert alert-primary"></div>
-                <div className="row">
-                  <div className="col-12 col-lg-5">
-                    <div id="list" className="list-group"></div>
-                    <nav className="text-center">
-                      <button
-                        onClick={() => {
-                          offset += pageLength;
-                          loadList();
-                        }}
-                        id="next_button"
-                        type="button"
-                        className="btn btn-primary"
-                        // className={{ background: "red" }}
-                        style={{
-                          background: "#6C7DB9",
-                          borderColor: "#6C7DB9",
-                        }}
-                      >
-                        Հաջորդ էջ
-                      </button>
-                    </nav>
-                  </div>
-                  <div className="col-12 col-lg-7">
-                    <div id="poi" className="alert"></div>
+              {prevColApi ? (
+                <div className="container">
+                  <div id="info" className="alert alert-primary"></div>
+                  <div className="row">
+                    <div className="col-12 col-lg-5">
+                      <div id="list" className="list-group"></div>
+                      <nav className="text-center">
+                        <button
+                          onClick={() => {
+                            offset += pageLength;
+                            loadList();
+                          }}
+                          id="next_button"
+                          type="button"
+                          className="btn btn-primary"
+                          // className={{ background: "red" }}
+                          style={{
+                            background: "#F86070",
+                            borderColor: "#F86070",
+                          }}
+                        >
+                          Հաջորդ էջ
+                        </button>
+                      </nav>
+                    </div>
+                    <div className="col-12 col-lg-7">
+                      <div id="poi" className="alert"></div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              ) : (
+                <>
+                  <div>Գաղափարներ նոր ճամփորդության համար</div>
+                  <Swiper
+                    pagination={true}
+                    modules={[Pagination]}
+                    className="mySwiper"
+                  >
+                    <SwiperSlide>
+                      <img src={dilijan.src} />
+                      <div
+                        style={{
+                          padding: "20px 16px 16px",
+                          background: "rgb(217, 59, 48)",
+                        }}
+                      >
+                        <div style={{ textAlign: "left", fontWeight: "bold" }}>
+                          Դիլիջան
+                        </div>
+                        <div style={{ textAlign: "left", fontSize: "14px" }}>
+                          69կմ
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={erevan.src} />
+                      <div
+                        style={{
+                          padding: "20px 16px 16px",
+                          background: "rgb(188, 26, 110)",
+                        }}
+                      >
+                        <div style={{ textAlign: "left", fontWeight: "bold" }}>
+                          Երևան
+                        </div>
+                        <div style={{ textAlign: "left", fontSize: "14px" }}>
+                          B 1 km
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={gyumri.src} />
+                      <div
+                        style={{
+                          padding: "20px 16px 16px",
+                          background: "rgb(222, 49, 81)",
+                        }}
+                      >
+                        <div style={{ textAlign: "left", fontWeight: "bold" }}>
+                          Գյումրի
+                        </div>
+                        <div style={{ textAlign: "left", fontSize: "14px" }}>
+                          125 կմ
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <img src={caxkadzor.src} />
+                      <div
+                        style={{
+                          padding: "20px 16px 16px",
+                          background: "rgb(204, 45, 74)",
+                        }}
+                      >
+                        <div style={{ textAlign: "left", fontWeight: "bold" }}>
+                          Ծաղկաձոր
+                        </div>
+                        <div style={{ textAlign: "left", fontSize: "14px" }}>
+                          54 կմ
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  </Swiper>
+                </>
+              )}
+
               {/* <YMaps>
                 <Map
                   style={{ with: "80%", height: "75%", paddingTop: "10px" }}
@@ -333,29 +450,24 @@ const SecondPage = () => {
         </div>
         <div className={css.secondPageFooter}>
           <div>
-            <Image
-              onClick={() => router.back()}
-              src={backIcon}
-              alt="backIcon"
-            />
+            <Back onClick={() => router.back()} />
           </div>
-          <div>
-            <Image src={geo} alt="geo" />
-            {router.pathname === "/main" && <Doth />}
+          <div style={{ position: "relative" }}>
+            <Location />
+            {router.pathname === "/main" && <Doth left={-6} />}
           </div>
-
           <div>
             <Link href="rates">
-              <Image src={exchange} alt="list" />
+              <Euro />
             </Link>
           </div>
           <div>
             <Link href="/news">
-              <Image src={news} alt="news" />
+              <News />
             </Link>
           </div>
-          <span style={{ opacity: "0" }}>
-            <Image style={{ opacity: "none" }} src={exchange} alt="list" />
+          <span style={{ opacity: "0", width: "20px" }}>
+            <Image src={img} alt="list" />
           </span>
         </div>
       </div>
