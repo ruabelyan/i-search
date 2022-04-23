@@ -23,7 +23,7 @@ const News = () => {
   const router = useRouter();
 
   return (
-    <div style={{ background: "linear-gradient(45deg, #3f4f8a, #6c79a5)" }}>
+    <div style={{ background: "rgb(248, 96, 112)" }}>
       <Sidebar outerContainerId={"App"} />
       <Menu>
         <div style={{ fontSize: "16px" }} className="menu-item--small">

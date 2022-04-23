@@ -76,6 +76,7 @@ const rates = () => {
   useEffect(() => {
     axios
       .get(
+        // new key 300 request UNEqsTeNRuQOqbQnHYF9n4LdpusVFq5DGRqvRHSM
         // "https://api.currencyapi.com/v3/latest?apikey=jB3HVzcNdXRA92DH80cxbJTVVIfyx8YFefpDk7hi",
         "https://api.currencyapi.com/v3/latest?apikey="
       )
@@ -93,25 +94,51 @@ const rates = () => {
   return (
     <div className={css.main}>
       <Sidebar outerContainerId={"App"} />
-      <Menu>
-        <div style={{ fontSize: "16px" }} className="menu-item--small">
+      <Menu right>
+        <div
+          style={{
+            fontSize: "15px",
+            display: "flex",
+            top: "140px",
+            position: "absolute",
+          }}
+          className="menu-item"
+        >
+          <Euro />
           <Link href="/main">Գլխավոր</Link>
         </div>
-        <div style={{ fontSize: "16px" }} className="menu-item">
+        <div
+          style={{
+            fontSize: "15px",
+            display: "flex",
+            top: "190px",
+            position: "absolute",
+          }}
+          className="menu-item"
+        >
+          <Euro />
+
           <Link href="/main">Արտարժույթի փոխանակում</Link>
         </div>
         <div
-          style={{ fontSize: "16px" }}
+          style={{
+            fontSize: "15px",
+            display: "flex",
+            top: "240px",
+            position: "absolute",
+          }}
           id="about"
           className="menu-item"
           href="/news"
         >
+          <Euro />
+
           <Link href="/news">Նորություններ</Link>
         </div>
       </Menu>
       <div
         className={css.secondPage}
-        style={{ background: "linear-gradient(45deg, #3f4f8a, #6c79a5)" }}
+        style={{ background: "rgb(248, 96, 112)" }}
       >
         <div>
           <h3

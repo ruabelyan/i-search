@@ -2,10 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import css from "../styles/second/SecondPage.module.css";
 import img from "./images/Group-6.png";
-import erevan from "./images/slider/erevan.jpg";
-import dilijan from "./images/slider/dilijan.jpg";
-import gyumri from "./images/slider/gyumri.jpg";
-import caxkadzor from "./images/slider/caxkadzor.jpg";
+
 import Logo from "./images/Group-5.svg";
 import Euro from "./images/icons/euro.svg";
 import Back from "./images/icons/back.svg";
@@ -34,12 +31,8 @@ import { layer_names } from "../layerNames";
 import Range from "./components/range";
 import { isoCountries } from "../countries";
 import Loader2 from "./loader/Loader2";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+import Slider from "./components/slider";
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -106,7 +99,10 @@ const SecondPage = () => {
   const [radius, setRadius] = useState(1000);
   const [search, setSearch] = useState(false);
   const [prevColApi, setPrevColApi] = useState(false);
+  const [cordinats, setCordinants] = useState({});
+  const [showInfoCard, setShowInfoCard] = useState(false);
 
+  console.log(cordinats);
   const apiKey = "5ae2e3f221c38a28845f05b6de78eb52c36e8f89040073523a3752d4";
 
   function apiGet(method, query) {
@@ -144,13 +140,12 @@ const SecondPage = () => {
     if (data.preview) {
       poi.innerHTML += `<img src="${data.preview.source}">`;
     }
+    setShowInfoCard(true);
     poi.innerHTML += data.wikipedia_extracts
       ? data.wikipedia_extracts.html
       : data.info
       ? data.info.descr
       : "No description";
-
-    poi.innerHTML += `<p><a target="_blank" href="${data.otm}">Show more at OpenTripMap</a></p>`;
   }
 
   function createListItem(item) {
@@ -173,7 +168,9 @@ const SecondPage = () => {
   function loadList() {
     apiGet(
       "radius",
-      `radius=${radius}&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=json`
+      `radius=${radius}&limit=${pageLength}&offset=${offset}&lon=${
+        lon || cordinats.lon
+      }&lat=${lat || cordinats.lat}&rate=2&format=json`
     ).then(function (data) {
       console.log(data);
       let list = document.getElementById("list");
@@ -198,7 +195,7 @@ const SecondPage = () => {
       offset = 0;
       document.getElementById(
         "info"
-      ).innerHTML += `<p>${count} 1կմ շառավղով օբյեկտներ</p>`;
+      ).innerHTML += `<p> գտնվել է <span style='font-size:16px;color:white;font-weight: 500;'>${count}</span> օբյեկտներ, 1կմ շառավղով</p>`;
       loadList();
     });
   }
@@ -271,6 +268,7 @@ const SecondPage = () => {
                       message = data.name + ", " + getCountryName(data.country);
                       lon = data.lon;
                       lat = data.lat;
+                      setCordinants({ lat, lon });
                       firstLoad();
                     }
                     document.getElementById(
@@ -290,6 +288,7 @@ const SecondPage = () => {
             </div>
 
             <div className={css.secondSearchBlock}>
+              <div>Շառավիղ</div>
               <Range />
             </div>
             <div
@@ -329,6 +328,7 @@ const SecondPage = () => {
                             background: "#F86070",
                             borderColor: "#F86070",
                             marginTop: "10px",
+                            borderRadius: "8px",
                           }}
                         >
                           Հաջորդ էջ
@@ -336,83 +336,17 @@ const SecondPage = () => {
                       </nav>
                     </div>
                     <div className="col-12 col-lg-7">
-                      <div id="poi" className="alert"></div>
+                      <div
+                        id="poi"
+                        className={showInfoCard ? "info-card alert" : "alert"}
+                      ></div>
                     </div>
                   </div>
                 </div>
               ) : (
                 <>
-                  <div>Գաղափարներ նոր ճամփորդության համար</div>
-                  <Swiper
-                    pagination={true}
-                    modules={[Pagination]}
-                    className="mySwiper"
-                  >
-                    <SwiperSlide>
-                      <img src={dilijan.src} />
-                      <div
-                        style={{
-                          padding: "20px 16px 16px",
-                          background: "rgb(217, 59, 48)",
-                        }}
-                      >
-                        <div style={{ textAlign: "left", fontWeight: "bold" }}>
-                          Դիլիջան
-                        </div>
-                        <div style={{ textAlign: "left", fontSize: "14px" }}>
-                          69կմ
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={erevan.src} />
-                      <div
-                        style={{
-                          padding: "20px 16px 16px",
-                          background: "rgb(188, 26, 110)",
-                        }}
-                      >
-                        <div style={{ textAlign: "left", fontWeight: "bold" }}>
-                          Երևան
-                        </div>
-                        <div style={{ textAlign: "left", fontSize: "14px" }}>
-                          B 1 km
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={gyumri.src} />
-                      <div
-                        style={{
-                          padding: "20px 16px 16px",
-                          background: "rgb(222, 49, 81)",
-                        }}
-                      >
-                        <div style={{ textAlign: "left", fontWeight: "bold" }}>
-                          Գյումրի
-                        </div>
-                        <div style={{ textAlign: "left", fontSize: "14px" }}>
-                          125 կմ
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <img src={caxkadzor.src} />
-                      <div
-                        style={{
-                          padding: "20px 16px 16px",
-                          background: "rgb(204, 45, 74)",
-                        }}
-                      >
-                        <div style={{ textAlign: "left", fontWeight: "bold" }}>
-                          Ծաղկաձոր
-                        </div>
-                        <div style={{ textAlign: "left", fontSize: "14px" }}>
-                          54 կմ
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                  </Swiper>
+                  {/* <div>Գաղափարներ նոր ճամփորդության համար</div> */}
+                  <Slider />
                 </>
               )}
 

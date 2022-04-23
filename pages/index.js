@@ -7,6 +7,7 @@ import { useState } from "react";
 Loader;
 import { useRouter } from "next/router";
 import Loader from "./loader/Loader";
+import Logo from "./images/main-logo.svg";
 
 const FirstPage = ({ setNextPage }) => {
   const [loading, setLoading] = useState(true);
@@ -25,7 +26,8 @@ const FirstPage = ({ setNextPage }) => {
           <h1 style={{ margin: "0" }}> Որոնում</h1> */}
         </div>
         <div className={css.image}>
-          <Image src={img} alt="serch" />
+          <Logo />
+          {/* <Image src={img} alt="serch" /> */}
         </div>
       </div>
 

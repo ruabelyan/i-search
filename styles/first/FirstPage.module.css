@@ -1,17 +1,17 @@
 .bg {
+  height: 100vh;
   color: #fbfbfc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 5px;
   background-color: #557999;
   max-width: 452px;
   background: url("../../pages/images/background.png");
-  height: 100%;
 }
 
 .image {
@@ -28,14 +28,14 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .boldTitle {
@@ -51,8 +51,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: end;
+      -ms-flex-align: end;
+          align-items: end;
 }
 
 .firstPageFooter {
@@ -63,19 +63,19 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .PageButton {
   -webkit-animation: fade-show 0.3s;
-  animation: fade-show 0.3s;
+          animation: fade-show 0.3s;
   font-size: 20px;
   border: none;
   padding: 10px 45px;
@@ -88,7 +88,7 @@
 .Pagetext {
   font-size: 12px;
   text-align: center;
-  margin-bottom: -95px;
+  margin-bottom: -105px;
 }
 
 .Pagetext span {
@@ -113,7 +113,8 @@
   }
 }
 
-.range_selector .css-sxq3c4-MuiSlider-root {
-  color: red !important;
+.range_selector .css-14pt78w-MuiSlider-rail {
+  -webkit-box-shadow: 0px 0px 10px !important;
+          box-shadow: 0px 0px 10px !important;
 }
 /*# sourceMappingURL=FirstPage.module.css.map */

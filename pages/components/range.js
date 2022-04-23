@@ -7,6 +7,7 @@ import css from "../../styles/first/FirstPage.module.css";
 const PrettoSlider = styled(Slider)({
   color: "#f86070",
   height: 8,
+
   "& .MuiSlider-track": {
     border: "none",
   },
@@ -14,6 +15,7 @@ const PrettoSlider = styled(Slider)({
     height: 24,
     width: 24,
     backgroundColor: "white",
+    boxShadow: "0px 0px 10px",
     border: "2px solid currentColor",
     "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible": {
       boxShadow: "inherit",
@@ -24,6 +26,7 @@ const PrettoSlider = styled(Slider)({
   },
   "& .MuiSlider-valueLabel": {
     lineHeight: 1.2,
+    boxShadow: "0px 0px 10px",
     fontSize: 12,
     background: "unset",
     padding: 0,

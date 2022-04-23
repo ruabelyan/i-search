@@ -1,6 +1,6 @@
-@charset "UTF-8";
 .main {
   position: relative;
+  height: 100%;
 }
 
 .secondPage {
@@ -90,11 +90,17 @@
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: 100%;
+  background: white;
+  color: #746a6a;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-weight: 400;
+  border-radius: 8px;
+  width: 90%;
 }
 
 .secondSearchBlock input {
-  height: ձթpx;
   width: 60%;
   padding: 0 13px;
   font-family: inherit;
@@ -106,7 +112,7 @@
 }
 
 .map {
-  width: 90%;
+  width: 87%;
   height: 100%;
   min-height: 400px;
   border-radius: 8px;
