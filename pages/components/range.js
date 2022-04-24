@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Slider from "@mui/material/Slider";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -46,10 +46,11 @@ const PrettoSlider = styled(Slider)({
   },
 });
 
-export default function Range() {
+export default function Range({ onRadiusChange }) {
   return (
-    <Box className={css.range_selector} sx={{ width: 280 }}>
+    <Box className={css.range_selector} sx={{ width: "60%" }}>
       <PrettoSlider
+        onChange={onRadiusChange}
         valueLabelDisplay="auto"
         aria-label="pretto slider"
         defaultValue={1000}

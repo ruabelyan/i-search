@@ -145,7 +145,12 @@ const SecondPage = () => {
       ? data.wikipedia_extracts.html
       : data.info
       ? data.info.descr
-      : "No description";
+      : `<span style='font-size: 16px;
+      color: black;
+      font-weight: 500;
+      text-align: center;
+      display: block;
+      margin-top: 10px;'>Տեղեկություն չկա</span>`;
   }
 
   function createListItem(item) {
@@ -189,13 +194,13 @@ const SecondPage = () => {
   function firstLoad() {
     apiGet(
       "radius",
-      `radius=1000&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=count`
+      `radius=${radius}&limit=${pageLength}&offset=${offset}&lon=${lon}&lat=${lat}&rate=2&format=count`
     ).then(function (data) {
       count = data.count;
       offset = 0;
       document.getElementById(
         "info"
-      ).innerHTML += `<p> գտնվել է <span style='font-size:16px;color:white;font-weight: 500;'>${count}</span> օբյեկտներ, 1կմ շառավղով</p>`;
+      ).innerHTML += `<p> գտնվել է <span style='font-size:16px;color:white;font-weight: 500;'>${count}</span> օբյեկտներ, ${radius}մ շառավղով</p>`;
       loadList();
     });
   }
@@ -263,7 +268,7 @@ const SecondPage = () => {
                 className={css.searchButton}
                 onClick={() => {
                   apiGet("geoname", "name=" + inputValue).then(function (data) {
-                    let message = "Անունը չի գտնվել";
+                    let message = "Տարածաշրջանի անվանումը չի հայտնաբերվել";
                     if (data.status == "OK") {
                       message = data.name + ", " + getCountryName(data.country);
                       lon = data.lon;
@@ -288,8 +293,8 @@ const SecondPage = () => {
             </div>
 
             <div className={css.secondSearchBlock}>
-              <div>Շառավիղ</div>
-              <Range />
+              <div>Շառավիղ {radius}մ</div>
+              <Range onRadiusChange={(e) => setRadius(e.target.value)} />
             </div>
             <div
               style={{
@@ -312,7 +317,7 @@ const SecondPage = () => {
                     }}
                   ></div>
                   <div className="row">
-                    <div className="col-12 col-lg-5">
+                    <div className="col-12 col-lg-12">
                       <div id="list" className="list-group"></div>
                       <nav className="text-center">
                         <button
@@ -335,7 +340,7 @@ const SecondPage = () => {
                         </button>
                       </nav>
                     </div>
-                    <div className="col-12 col-lg-7">
+                    <div className="col-12 col-lg-12">
                       <div
                         id="poi"
                         className={showInfoCard ? "info-card alert" : "alert"}

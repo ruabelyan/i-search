@@ -10,9 +10,9 @@
           flex-direction: column;
   padding: 5px;
   background-color: #557999;
-  max-width: 452px;
-  max-height: 800px;
-  background: url("../../pages/images/background.png");
+  max-width: 991px;
+  margin: auto;
+  background: url("../../pages/images/background2.png");
 }
 
 .image {

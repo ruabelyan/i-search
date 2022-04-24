@@ -346,7 +346,9 @@ const rates = () => {
               <Doth left={-3} />
             </div>
             <div>
-              <News />
+              <Link href="news">
+                <News />
+              </Link>
             </div>
 
             <span style={{ opacity: "0", width: "20px" }}>

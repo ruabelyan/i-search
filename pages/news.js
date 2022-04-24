@@ -25,19 +25,45 @@ const News = () => {
   return (
     <div style={{ background: "rgb(248, 96, 112)" }}>
       <Sidebar outerContainerId={"App"} />
-      <Menu>
-        <div style={{ fontSize: "16px" }} className="menu-item--small">
+      <Menu right>
+        <div
+          style={{
+            fontSize: "15px",
+            display: "flex",
+            top: "140px",
+            position: "absolute",
+          }}
+          className="menu-item"
+        >
+          <Euro />
           <Link href="/main">Գլխավոր</Link>
         </div>
-        <div style={{ fontSize: "16px" }} className="menu-item">
+        <div
+          style={{
+            fontSize: "15px",
+            display: "flex",
+            top: "190px",
+            position: "absolute",
+          }}
+          className="menu-item"
+        >
+          <Euro />
+
           <Link href="/main">Արտարժույթի փոխանակում</Link>
         </div>
         <div
-          style={{ fontSize: "16px" }}
+          style={{
+            fontSize: "15px",
+            display: "flex",
+            top: "240px",
+            position: "absolute",
+          }}
           id="about"
           className="menu-item"
           href="/news"
         >
+          <Euro />
+
           <Link href="/news">Նորություններ</Link>
         </div>
       </Menu>
