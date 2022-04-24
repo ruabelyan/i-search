@@ -293,7 +293,7 @@ const SecondPage = () => {
             </div>
 
             <div className={css.secondSearchBlock}>
-              <div>Շառավիղ {radius}մ</div>
+              <div style={{ fontSize: "14px" }}>Շառավիղ {radius}մ</div>
               <Range onRadiusChange={(e) => setRadius(e.target.value)} />
             </div>
             <div
