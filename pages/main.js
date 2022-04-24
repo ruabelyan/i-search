@@ -200,6 +200,9 @@ const SecondPage = () => {
     ).then(function (data) {
       count = data.count;
       offset = 0;
+      if (count < 1) {
+        setShowInfoCard(false);
+      }
       document.getElementById(
         "info"
       ).innerHTML += `<p> գտնվել է <span style='font-size:16px;color:white;font-weight: 500;'>${count}</span> օբյեկտներ, ${radius}մ շառավղով</p>`;
@@ -352,7 +355,9 @@ const SecondPage = () => {
                     <div className="col-12 col-lg-12">
                       <div
                         id="poi"
-                        className={showInfoCard ? "info-card alert" : "alert"}
+                        className={
+                          showInfoCard ? "info-card alert " : "alert d-none"
+                        }
                       ></div>
                     </div>
                   </div>
