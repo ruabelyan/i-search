@@ -96,6 +96,7 @@ function getCategoryName(kinds) {
 const SecondPage = () => {
   const router = useRouter();
   const [inputValue, setInputValue] = useState([]);
+  const [data, setData] = useState(false);
   const [radius, setRadius] = useState(1000);
   const [search, setSearch] = useState(false);
   const [prevColApi, setPrevColApi] = useState(false);
@@ -120,6 +121,7 @@ const SecondPage = () => {
         .then((data) => {
           resolve(data);
           setPrevColApi(true);
+          setData(true);
         })
         .catch(function (err) {
           console.log("Fetch Error :-S", err);
@@ -279,12 +281,13 @@ const SecondPage = () => {
                     document.getElementById(
                       "info"
                     ).innerHTML = `<p>${message}</p>`;
+                    setData(false);
                   });
 
                   setSearch(true);
                   setTimeout(() => {
                     setSearch(false);
-                  }, 2000);
+                  }, 1000);
                 }}
               >
                 {!search ? <div>Որոնել</div> : <Loader2 />}
@@ -315,29 +318,35 @@ const SecondPage = () => {
                       backgroundColor: "#f8607075",
                       borderColor: "#b6d4fe",
                     }}
-                  ></div>
+                  >
+                    <div style={{ textAlign: "center" }}>
+                      <Loader2 />
+                    </div>
+                  </div>
                   <div className="row">
                     <div className="col-12 col-lg-12">
                       <div id="list" className="list-group"></div>
                       <nav className="text-center">
-                        <button
-                          onClick={() => {
-                            offset += pageLength;
-                            loadList();
-                          }}
-                          id="next_button"
-                          type="button"
-                          className="btn btn-primary"
-                          // className={{ background: "red" }}
-                          style={{
-                            background: "#F86070",
-                            borderColor: "#F86070",
-                            marginTop: "10px",
-                            borderRadius: "8px",
-                          }}
-                        >
-                          Հաջորդ էջ
-                        </button>
+                        {data && (
+                          <button
+                            onClick={() => {
+                              offset += pageLength;
+                              loadList();
+                            }}
+                            id="next_button"
+                            type="button"
+                            className="btn btn-primary"
+                            // className={{ background: "red" }}
+                            style={{
+                              background: "#F86070",
+                              borderColor: "#F86070",
+                              marginTop: "10px",
+                              borderRadius: "8px",
+                            }}
+                          >
+                            Հաջորդ էջ
+                          </button>
+                        )}
                       </nav>
                     </div>
                     <div className="col-12 col-lg-12">
